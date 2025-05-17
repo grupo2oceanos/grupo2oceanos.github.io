@@ -1,0 +1,577 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo Ayudar</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .especies-gallery {
+            padding: 40px 20px;
+            background-color: var(--primary);
+            color: var(--light);
+        }
+
+        .especies-gallery .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-items: center;
+        }
+
+        .especies-gallery .item {
+            width: 100%;
+            max-width: 200px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 15px;
+            border: 1px solid rgba(4, 217, 217, 0.3);
+            text-decoration: none;
+            color: inherit;
+            aspect-ratio: 0.8;
+        }
+
+        .especies-gallery .item img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            object-position: center;
+            transition: var(--transition);
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+            border-radius: 8px;
+        }
+
+        .especies-gallery .item .name {
+            margin-top: 15px;
+            color: var(--secondary);
+            font-family: 'Barlow', sans-serif;
+            font-weight: 600;
+            text-align: center;
+            font-size: 1rem;
+            padding: 8px 12px;
+            background: rgba(4, 217, 217, 0.15);
+            border-radius: 20px;
+            transition: var(--transition);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .especies-gallery .item:hover {
+            transform: translateY(-8px);
+            background: rgba(4, 217, 217, 0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            border-color: var(--secondary);
+        }
+
+        .especies-gallery .item:hover img {
+            transform: scale(1.08);
+            filter: drop-shadow(0 6px 12px rgba(4, 217, 217, 0.4)) brightness(110%);
+        }
+
+        .especies-gallery .item:hover .name {
+            background: rgba(4, 217, 217, 0.3);
+            color: white;
+        }
+
+        .floating-message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .floating-message:target {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .message-content {
+            background: rgba(2, 74, 89, 0.95);
+            color: var(--light);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 2px solid var(--secondary);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+        }
+
+        .message-content h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .message-content p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .message-content ul {
+            text-align: left;
+            margin-left: 20px;
+        }
+
+        .message-content li {
+            margin-bottom: 10px;
+        }
+
+        .close-btn {
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Barlow', sans-serif;
+            text-decoration: none;
+            display: inline-block;
+            transition: var(--transition);
+        }
+
+        .close-btn:hover {
+            background: var(--light);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .especies-gallery .container {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 15px;
+            }
+            .especies-gallery .item {
+                padding: 15px 10px;
+            }
+            .especies-gallery .item .name {
+                font-size: 0.9rem;
+                padding: 6px 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .especies-gallery .container {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                gap: 12px;
+            }
+            .especies-gallery .item img {
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="right-nav">
+            <div class="search">
+                <input type="text" placeholder="Buscar...">
+                <button>🔍</button>
+            </div>
+            <a href="../html/Registro.html" class="register" title="Registrarse">📋</a>
+            <a href="../html/iniciodesesion.html" class="sesion" title="InicioSesion">👤</a>
+        </div>
+        
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li class="dropdown">
+                <a href="../html/explorar.html">Explorar</a>
+                <div class="dropdown-menu">
+                    <a href="../html/especies_marinas.html">🐠 Especies Marinas</a>
+                    <a href="../html/especies-exticion.html">⚠️ Especies en Peligro</a>
+                    <a href="../html/ecosistemas.html">🌊 Ecosistemas</a>
+                    <a href="../html/Contaminacion.html">🗑️ Contaminación</a>
+                    <a href="../html/cambio_climatico.html">🌍🌡️ Cambio Climático</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="../html/aprender.html">Aprender</a>
+                <div class="dropdown-menu">
+                    <a href="../html/proyectos.html">🛠️ Proyectos e Iniciativas</a>
+                    <a href="../html/ayudar.html">💚 Cómo Ayudar</a>
+                    <a href="../html/comunidad.html">👥 Comunidad</a>
+                    <a href="../html/ayuda.html">❓ Ayuda</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>⚠️ Especies Marinas en Peligro de Extinción</h1>
+    </header>
+
+    <main>
+        <div class="especies-gallery">
+            <div class="container">
+                <a href="#pinguino_galapagos" class="item">
+                    <img src="../imagenes/pingui.webp" alt="Pingüino de las Galápagos">
+                    <span class="name">Pingüino de las Galápagos</span>
+                </a>
+                <a href="#vaquita_marina" class="item">
+                    <img src="../imagenes/vacamar.webp" alt="Vaquita marina">
+                    <span class="name">Vaquita marina</span>
+                </a>
+                <a href="#tortuga_carey" class="item">
+                    <img src="../imagenes/totucarey.webp" alt="Tortuga carey">
+                    <span class="name">Tortuga carey</span>
+                </a>
+                <a href="#tortuga_laud" class="item">
+                    <img src="../imagenes/torlaud.webp" alt="Tortuga laúd">
+                    <span class="name">Tortuga laúd</span>
+                </a>
+                <a href="#pez_napoleon" class="item">
+                    <img src="../imagenes/peznapo.webp" alt="Pez Napoleón">
+                    <span class="name">Pez Napoleón</span>
+                </a>
+                <a href="#atun_rojo" class="item">
+                    <img src="../imagenes/atunrojo.webp" alt="Atún rojo">
+                    <span class="name">Atún rojo</span>
+                </a>
+                <a href="#ballena_azul" class="item">
+                    <img src="../imagenes/balleazul.webp" alt="Ballena azul">
+                    <span class="name">Ballena azul</span>
+                </a>
+                <a href="#tiburon_blanco" class="item">
+                    <img src="../imagenes/tibubla.webp" alt="Tiburón blanco">
+                    <span class="name">Tiburón blanco</span>
+                </a>
+                <a href="#tiburon_ballena" class="item">
+                    <img src="../imagenes/tibubal.webp" alt="Tiburón ballena">
+                    <span class="name">Tiburón ballena</span>
+                </a>
+                <a href="#tiburon_martillo" class="item">
+                    <img src="../imagenes/tibumar.webp" alt="Tiburón martillo">
+                    <span class="name">Tiburón martillo</span>
+                </a>
+                <a href="#tortuga_verde" class="item">
+                    <img src="../imagenes/tortuverde.webp" alt="Tortuga verde">
+                    <span class="name">Tortuga verde</span>
+                </a>
+                <a href="#delfin_hector" class="item">
+                    <img src="../imagenes/delfihect.webp" alt="Delfín de Héctor">
+                    <span class="name">Delfín de Héctor</span>
+                </a>
+                <a href="#nutria_marina" class="item">
+                    <img src="../imagenes/nutria.webp" alt="Nutria marina">
+                    <span class="name">Nutria marina</span>
+                </a>
+                <a href="#manta_gigante" class="item">
+                    <img src="https://mantaray-world.com/wp-content/uploads/mantarraya_gigante_624.jpg.webp" alt="Manta gigante">
+                    <span class="name">Manta gigante</span>
+                </a>
+                <a href="#manati" class="item">
+                    <img src="../imagenes/maniti.webp" alt="Manatí">
+                    <span class="name">Manatí</span>
+                </a>
+                <a href="#pinguino_magallanes" class="item">
+                    <img src="../imagenes/pinguigalla.webp">
+                    <span class="name">Pingüino de Magallanes</span>
+                </a>
+                <a href="#lapa_ferruginea" class="item">
+                    <img src="../imagenes/lapa.webp" alt="Lapa ferrugínea">
+                    <span class="name">Lapa ferrugínea</span>
+                </a>
+                <a href="#ballena_fin" class="item">
+                    <img src="../imagenes/balleleta.webp" alt="Ballena de aleta">
+                    <span class="name">Ballena de aleta</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div id="pinguino_galapagos" class="floating-message">
+        <div class="message-content">
+            <h3>Pingüino de las Galápagos</h3>
+            <p><strong>Descripción:</strong> El único pingüino que vive naturalmente al norte del ecuador, endémico de las Islas Galápagos.</p>
+            <ul>
+                <li><strong>En peligro por:</strong> Cambio climático, depredadores introducidos, y pesca.</li>
+                <li><strong>Importancia ecológica:</strong> Controla poblaciones de peces pequeños e invertebrados marinos.</li>
+            </ul>
+            <a href="#" class="close-btn">Cerrar</a>
+        </div>
+    </div>
+
+    <div id="vaquita_marina" class="floating-message">
+        <div class="message-content">
+            <h3>Vaquita marina</h3>
+            <p><strong>Descripción:</strong> Cetáceo muy pequeño y tímido, endémico del norte del Golfo de California, México.</p>
+            <ul>
+                <li><strong>En peligro por:</strong> Redes de pesca ilegales (especialmente usadas para pescar totoaba).</li>
+                <li><strong>Importancia ecológica:</strong> Indicador de salud del ecosistema marino local.</li>
+            </ul>
+            <a href="#" class="close-btn">Cerrar</a>
+        </div>
+    </div>
+
+    <div id="tortuga_carey" class="floating-message">
+        <div class="message-content">
+            <h3>Tortuga carey</h3>
+            <p><strong>Descripción:</strong> Tortuga marina de caparazón colorido, muy apreciada por el comercio ilegal.</p>
+            <ul>
+                <li><strong>En peligro por:</strong> Caza, pérdida de hábitat, y tráfico ilegal de caparazones.</li>
+                <li><strong>Importancia ecológica:</strong> Ayuda a mantener la salud de los arrecifes de coral al consumir esponjas.</li>
+            </ul>
+            <a href="#" class="close-btn">Cerrar</a>
+        </div>
+    </div>
+
+    <div id="tortuga_laud" class="floating-message">
+        <div class="message-content">
+            <h3>Tortuga laúd</h3>
+            <p><strong>Descripción:</strong> La tortuga marina más grande del mundo, de caparazón blando y sin escamas.</p>
+            <ul>
+                <li><strong>En peligro por:</strong> Captura accidental, contaminación por plásticos.</li>
+                <li><strong>Importancia ecológica:</strong> Controla poblaciones de medusas.</li>
+            </ul>
+            <a href="#" class="close-btn">Cerrar</a>
+        </div>
+    </div>
+
+    <div id="pez_napoleon" class="floating-message">
+        <div class="message-content">
+            <h3>Pez Napoleón</h3>
+            <p><strong>Descripción:</strong> Pez grande de colores vivos que habita en arrecifes coralinos.</p>
+            <ul>
+                <li><strong>En peligro por:</strong> Sobrepesca y comercio para acuarios y gastronomía.</li>
+                <li><strong>Importancia ecológica:</strong> Controla especies problemáticas como las estrellas de mar corona de espinas.</li>
+            </ul>
+            <a href="#" class="close-btn">Cerrar</a>
+        </div>
+    </div>
+
+    <div id="atun_rojo" class="floating-message">
+        <div class="message-content">
+            <h3>Atún rojo</h3>
+            <p><strong>Descripción:</strong> Gran pez oceánico migratorio muy valorado por su carne.</p>
+            <ul>
+                <li><strong>En peligro por:</strong> Pesca industrial masiva.</li>
+                <li><strong>Importancia ecológica:</strong> Predador tope, regula poblaciones de peces más pequeños.</li>
+            </ul>
+            <a href="#" class="close-btn">Cerrar</a>
+        </div>
+    </div>
+
+    <div id="ballena_azul" class="floating-message">
+        <div class="message-content">
+            <h3>Ballena azul</h3>
+            <p><strong>Descripción:</strong> El animal más grande del planeta, llega a pesar hasta 180 toneladas.</p>
+            <ul>
+                <li><strong>En peligro por:</strong> Colisiones con barcos, cambio climático, contaminación acústica.</li>
+                <li><strong>Importancia ecológica:</strong> Transporta nutrientes entre capas del océano, fertiliza el plancton.</li>
+            </ul>
+            <a href="#" class="close-btn">Cerrar</a>
+        </div>
+    </div>
+
+    <div id="tiburon_blanco" class="floating-message">
+        <div class="message-content">
+            <h3>Tiburón blanco</h3>
+            <p><strong>Descripción:</strong> Gran depredador oceánico con potentes mandíbulas y dientes afilados.</p>
+            <ul>
+                <li><strong>En peligro por:</strong> Caza y captura incidental.</li>
+                <li><strong>Importancia ecológica:</strong> Regula poblaciones de focas y peces, mantiene el equilibrio del ecosistema.</li>
+            </ul>
+            <a href="#" class="close-btn">Cerrar</a>
+        </div>
+    </div>
+
+    <div id="tiburon_ballena" class="floating-message">
+        <div class="message-content">
+            <h3>Tiburón ballena</h3>
+            <p><strong>Descripción:</strong> El pez más grande del mundo, se alimenta filtrando plancton.</p>
+            <ul>
+                <li><strong>En peligro por:</strong> Pesca ilegal y colisiones con embarcaciones.</li>
+                <li><strong>Importancia ecológica:</strong> Regula poblaciones de plancton, transporta nutrientes.</li>
+            </ul>
+            <a href="#" class="close-btn">Cerrar</a>
+        </div>
+    </div>
+
+    <div id="tiburon_martillo" class="floating-message">
+        <div class="message-content">
+            <h3>Tiburón martillo</h3>
+            <p><strong>Descripción:</strong> Tiburón con cabeza en forma de "T" que mejora su visión y detección.</p>
+            <ul>
+                <li><strong>En peligro por:</strong> Pesca de aletas, pérdida de hábitat.</li>
+                <li><strong>Importancia ecológica:</strong> Controla poblaciones de peces y rayas, equilibrio marino.</li>
+            </ul>
+            <a href="#" class="close-btn">Cerrar</a>
+        </div>
+    </div>
+
+    <div id="tortuga_verde" class="floating-message">
+        <div class="message-content">
+            <h3>Tortuga verde</h3>
+            <p><strong>Descripción:</strong> Tortuga marina herbívora, nombrada por el color de su grasa.</p>
+            <ul>
+                <li><strong>En peligro por:</strong> Captura ilegal, pérdida de playas de anidación.</li>
+                <li><strong>Importancia ecológica:</strong> Mantiene saludables los pastos marinos y arrecifes.</li>
+            </ul>
+            <a href="#" class="close-btn">Cerrar</a>
+        </div>
+    </div>
+
+    <div id="delfin_hector" class="floating-message">
+        <div class="message-content">
+            <h3>Delfín de Héctor</h3>
+            <p><strong>Descripción:</strong> Uno de los delfines más pequeños del mundo, exclusivo de Nueva Zelanda.</p>
+            <ul>
+                <li><strong>En peligro por:</strong> Redes de pesca y alteración de hábitat.</li>
+                <li><strong>Importancia ecológica:</strong> Indicador de salud del ecosistema costero.</li>
+            </ul>
+            <a href="#" class="close-btn">Cerrar</a>
+        </div>
+    </div>
+
+    <div id="nutria_marina" class="floating-message">
+        <div class="message-content">
+            <h3>Nutria marina</h3>
+            <p><strong>Descripción:</strong> Mamífero marino peludo que flota sobre la espalda mientras come.</p>
+            <ul>
+                <li><strong>En peligro por:</strong> Derrames de petróleo, contaminación, caza histórica.</li>
+                <li><strong>Importancia ecológica:</strong> Controla poblaciones de erizos de mar, vital para bosques de algas.</li>
+            </ul>
+            <a href="#" class="close-btn">Cerrar</a>
+        </div>
+    </div>
+
+    <div id="manta_gigante" class="floating-message">
+        <div class="message-content">
+            <h3>Manta gigante</h3>
+            <p><strong>Descripción:</strong> Raya marina de gran tamaño con movimientos elegantes.</p>
+            <ul>
+                <li><strong>En peligro por:</strong> Pesca dirigida y colisiones.</li>
+                <li><strong>Importancia ecológica:</strong> Regula comunidades planctónicas, indica salud marina.</li>
+            </ul>
+            <a href="#" class="close-btn">Cerrar</a>
+        </div>
+    </div>
+
+    <div id="manati" class="floating-message">
+        <div class="message-content">
+            <h3>Manatí</h3>
+            <p><strong>Descripción:</strong> Mamífero marino herbívoro conocido como "vaca marina".</p>
+            <ul>
+                <li><strong>En peligro por:</strong> Colisiones con embarcaciones, pérdida de pastos marinos.</li>
+                <li><strong>Importancia ecológica:</strong> Mantiene el equilibrio en zonas de manglares y lagunas.</li>
+            </ul>
+            <a href="#" class="close-btn">Cerrar</a>
+        </div>
+    </div>
+
+    <div id="pinguino_magallanes" class="floating-message">
+        <div class="message-content">
+            <h3>Pingüino de Magallanes</h3>
+            <p><strong>Descripción:</strong> Pingüino sudamericano que vive en las costas de Argentina y Chile.</p>
+            <ul>
+                <li><strong>En peligro por:</strong> Cambio climático, derrames de petróleo.</li>
+                <li><strong>Importancia ecológica:</strong> Controla peces pequeños e invertebrados marinos.</li>
+            </ul>
+            <a href="#" class="close-btn">Cerrar</a>
+        </div>
+    </div>
+
+    <div id="lapa_ferruginea" class="floating-message">
+        <div class="message-content">
+            <h3>Lapa ferrugínea</h3>
+            <p><strong>Descripción:</strong> Molusco marino adherido a rocas del Mediterráneo occidental.</p>
+            <ul>
+                <li><strong>En peligro por:</strong> Recolección y degradación del hábitat costero.</li>
+                <li><strong>Importancia ecológica:</strong> Indicador ecológico de la salud del litoral.</li>
+            </ul>
+            <a href="#" class="close-btn">Cerrar</a>
+        </div>
+    </div>
+
+    <div id="ballena_fin" class="floating-message">
+        <div class="message-content">
+            <h3>Ballena de aleta</h3>
+            <p><strong>Descripción:</strong> Segunda ballena más grande del mundo, de cuerpo largo y estilizado.</p>
+            <ul>
+                <li><strong>En peligro por:</strong> Caza histórica, colisiones, contaminación sonora.</li>
+                <li><strong>Importancia ecológica:</strong> Transporta nutrientes, fertiliza fitoplancton.</li>
+            </ul>
+            <a href="#" class="close-btn">Cerrar</a>
+        </div>
+    </div>
+        
+    <footer>
+    <div class="footer-col">
+        <h3>¡Únete a nosotros!</h3>
+        <div class="social">
+            <a href="https://www.facebook.com/" title="Facebook"><img src="../logos/facebook.png" alt="Facebook"></a>
+            <a href="https://www.youtube.com/" title="YouTube"><img src="../logos/youtube.png" alt="YouTube"></a>
+            <a href="https://www.instagram.com/" title="Instagram"><img src="../logos/instagram.png" alt="Instagram"></a>
+            <a href="https://www.tiktok.com/es/" title="TikTok"><img src="../logos/tictock.png" alt="TikTok"></a>
+        </div>
+    </div>
+    <div class="footer-col">
+        <h3>Más información aquí</h3>
+        <button class="btn" id="infoBtn">Click</button>
+    </div>
+    <p style="text-align:center; padding:20px;">© 2025 Vida en los Océanos</p>
+</footer>
+
+<!-- Mensaje de Error -->
+<div class="error-message" id="errorMessage">
+    <div class="error-content">
+        <button class="close-error" id="closeError">×</button>
+        <img src="../imagenes/pez-realista.webp" alt="Error">
+        <h2>¡Lo sentimos!</h2>
+        <p>Esta función está en desarrollo. Pronto tendrás acceso a más información.</p>
+        <p>Mientras tanto, te invitamos a explorar nuestro contenido.</p>
+        <button class="btn error-btn" id="closeErrorBtn">Entendido</button>
+    </div>
+</div>
+    <script>
+    // Función para mostrar el error
+    function showError() {
+        document.getElementById('errorMessage').style.display = 'flex';
+    }
+
+    // Función para ocultar el error
+    function hideError() {
+        document.getElementById('errorMessage').style.display = 'none';
+    }
+
+    // Asignar eventos cuando el DOM esté cargado
+    document.addEventListener('DOMContentLoaded', function() {
+        // Botón "Click" en el footer
+        const infoBtn = document.getElementById('infoBtn');
+        if(infoBtn) {
+            infoBtn.addEventListener('click', showError);
+        }
+        
+        // Botones para cerrar el mensaje
+        document.getElementById('closeError').addEventListener('click', hideError);
+        document.getElementById('closeErrorBtn').addEventListener('click', hideError);
+        
+        // Cerrar al hacer clic fuera del mensaje
+        document.getElementById('errorMessage').addEventListener('click', function(e) {
+            if(e.target === this) {
+                hideError();
+            }
+        });
+    });
+</script>
+</body>
+</html>

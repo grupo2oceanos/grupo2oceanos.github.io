@@ -1,0 +1,502 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprender</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <header>
+        <h1>Aprender</h1>
+        <a href="../html/aprender.html"></a>
+    </header>
+<style>
+  
+.carrusel {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .slide {
+            min-width: 100%;
+        }
+        
+        .slide img {
+            width: 100%;
+            display: block;
+        }
+        
+        .controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        
+.controls button {
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+    
+    .video-container {
+            margin: 20px 0;
+            text-align: center;
+            padding: 15px;
+        }
+        
+    video {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    .video-container video {
+            max-width: 100%;
+            height: auto;
+            display: inline-block;
+        }
+    
+    .video-centrado {
+        text-align: center;
+        margin: 20px 0;
+        }
+    .video-centrado video {
+        max-width: 100%;
+        height: auto;
+        }
+    
+div.gallery {
+  border: 1px solid #90ADBF;
+}
+
+div.gallery:hover {
+  border: 1px solid #024a59;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+    div.gallery {
+  border: 1px solid white;
+    background-color: white;
+}
+
+div.gallery:hover {
+  border: 1px solid white;
+background-color: #04d9d9;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+        .actividades {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #007690;
+    padding: 20px;
+    gap: 20px;
+}
+
+.actividad {
+    background-color: white;
+    color: #024a59;
+    text-align: center;
+    width: 200px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.actividad h3 {
+    color: white;
+    background-color: #007690;
+    padding: 10px 0;
+    margin: -15px -15px 10px -15px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.actividad img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.actividad p {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.actividad button {
+    background-color: #90ADBF;
+    color: #024a59;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+}
+    
+</style>
+</head>
+<body>
+    <nav>
+        <div class="right-nav">
+            <div class="search">
+                <input type="text" placeholder="Buscar...">
+                <button>🔍</button>
+            </div>
+             <a href="../html/Registro.html" class="register" title="Registrarse">📋</a>
+            <a href="../html/iniciodesesion.html" class="sesion" title="InicioSesion">👤</a>
+        </div>
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li class="dropdown">
+                  <a href="../html/explorar.html">Explorar</a>
+                <div class="dropdown-menu">
+                   <a href="../html/especies_marinas.html">🐠 Especies Marinas</a>
+                    <a href="../html/especies-exticion.html">⚠️ Especies en Peligro</a>
+                    <a href="../html/ecosistemas.html">🌊 Ecosistemas</a>
+                    <a href="../html/Contaminacion.html">🗑️ Contaminación</a>
+                    <a href="../html/cambio_climatico.html">🌍🌡️ Cambio Climático</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="../html/aprender.html">Aprender</a>
+                <div class="dropdown-menu">
+                    <a href="../html/proyectos.html">🛠️ Proyectos e Iniciativas</a>
+                    <a href="../html/ayudar.html">💚 Cómo Ayudar</a>
+                   <a href="../html/comunidad.html">👥 Comunidad</a>
+                    <a href="../html/ayuda.html">❓ Ayuda</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    
+   <header>
+        <h1>APRENDER</h1>
+    </header>
+
+  
+  
+   <div class="carrusel">
+    <div class="slides">
+        <div class="slide">
+            <img src="../imagenes/focagor.webp" alt="Imagen 1">
+        </div>
+        <div class="slide">
+            <img src="../imagenes/pezcondi.webp" alt="Imagen 2">
+        </div>
+        <div class="slide">
+            <img src="../imagenes/pez-enojado.webp" alt="Imagen 3">
+        </div>
+        <div class="slide">
+            <img src="../imagenes/pez-huh.webp" alt="Imagen 4">
+        </div>
+        <div class="slide">
+            <img src="../imagenes/pez-chiquito.webp" alt="Imagen 5">
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+    </div>
+</div>
+
+<script>
+    const slides = document.querySelector('.slides');
+    const slideItems = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    let currentIndex = 0;
+    const totalSlides = slideItems.length;
+
+    function updateSlide() {
+        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlide();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateSlide();
+    });
+
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlide();
+    }, 3000);
+</script>
+   
+   
+    <main class="box_videos">
+        <section>
+            <div class="section-container">
+                <div class="section-content">
+                    <h2>¿Sabias que?</h2>
+                    <p>Las rayas y las mantas rayas pertenecen al mismo orden de peces, pero son diferentes especies. ¿Cómo puedo saberlo? Bueno...</p>
+
+                    <p>-Las principales diferencias radican en la boca, el tamaño y el aguijón.</p>
+
+
+                    <p>--La marita rayas tienen la boca al frente, mientras que la de las rayas está en la parte inferior del cuerpo.</p>
+
+                    <p>-Las mantarrayas pueden alcanzar los 7m 23ft, mientras que las rayas águila, las más grandes, no suelen sobrepasar los 3m 10 ft</p>
+
+                    <p> -Las rayas tienen aguijón, las mantas rayas no lo tienen.</p>
+
+                    <p>Como puedes observar en el video, si bien no te haran daño si estas cerca mejor prevenir que lamentar NO LAS TOQUES. En el mejor de los casos solo te golpearan con sus aletas en el peor te daran con su látigo
+
+                    Lamentablemente, las especies de mantarrayas se encuentran en la lista UICN con la clasificación de vulnerables. La causa principal es la sobreexplotación pesquera. Son muy apreciadas tanto en la cocina como en la farmacia.</p><video controls>
+                <source src="../videos/Datos%20curiosos.mp4" type="video/mp4">
+                El navegador no soporta el formato video.
+            </video>
+                </div>
+            </div>>
+        </section>
+        
+        <div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="../imagenes/raya.webp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Manta_birostris-Thailand3.jpg" alt="Mantaraya">
+    </a>
+    <div class="desc">Las mantarrayas pueden alcanzar los 7m 23ft, mientras que las rayas águila, las más grandes, no suelen sobrepasar los 3m 10 ft.e</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="../imagenes/pulpo.webp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Coconut_Octopus_%28Amphioctopus_marginatus%29_%286079648725%29.jpg" alt="Pulpo">
+    </a>
+    <div class="desc">El pulpo tiene tres corazones y el color de su sangre es azul.</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="../imagenes/narval.webp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/%D0%9D%D0%B0%D1%80%D0%B2%D0%B0%D0%BB_%D0%B2_%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%BE%D0%B9_%D0%90%D1%80%D0%BA%D1%82%D0%B8%D0%BA%D0%B5.jpg" alt="Narval">
+    </a>
+    <div class="desc">El nombre "Narval" procede del nórdico antiguo nár, que significa "cadáver", en referencia al aspecto gris moteado de la ballena, que recuerda al de los marineros ahogados.
+</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="../imagenes/foca.webp">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Seehund11cele4_edit.jpg" alt="Foca">
+    </a>
+    <div class="desc">Las focas y los leones marinos pertenecen a un grupo de mamíferos acuáticos llamados "pinnipedos". En latin "pinnipedos" significa "aleta" o "patas de aleta".</div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+        
+
+        <h2>🐟RECURSOS🐟</h2>
+
+
+<section>
+            <div class="section-container">
+                <div class="section-content">
+                <h2>¿Aprende sobre el océano también puede ser divertido!</h2>
+                <p> Aquí encontrarás materiales interactivos descargables diseñados para todas las edades. Desde actividades creativas hasta juegos educativos, puedes imprimirlos y usarlos en casa, en clase o donde tú quieras.</p>
+                </div>
+               
+            <div class="actividades">
+    <div class="actividad">
+        <h3>Colorear</h3>
+        <img src="../imagenes/colorear.webp" alt="Colorear">
+        <p>Colorea láminas del mundo marino y dale vida a tus especies favoritas. Ideal para expresar tu creatividad.</p>
+        <a href="../documentos/Colorear.pdf" download="Colorear.pdf"><button>DESCARGAR</button>
+        </a>
+    </div>
+
+    <div class="actividad">
+        <h3>Origami</h3>
+        <img src="../imagenes/origami.webp" alt="Origami">
+        <p>Crea figuras de animales y elementos del mar para armar tus propios escenarios submarinos.</p>
+        <a href="../documentos/Origami.pdf" download="Origami.pdf"><button>DESCARGAR</button>
+        </a>
+    </div>
+
+    <div class="actividad">
+        <h3>Sopa de letras</h3>
+        <img src="../imagenes/sopa.webp" alt="SopaLetras">
+        <p>Pon a prueba tu vocabulario oceánico con una divertida sopa de letras sobre especies y ecosistemas.</p>
+        <a href="../documentos/SopaLetras.pdf" download="SopaLetras.pdf"> <button>DESCARGAR</button>
+        </a>
+    </div>
+
+    <div class="actividad">
+        <h3>Crucigrama</h3>
+        <img src="../imagenes/cruci.webp" alt="Crucigrama">
+        <p>¿Sabes tanto del mar como crees? Resuelve este crucigrama temático y aprende más sobre su conservación.</p>
+        <a href="../documentos/Crucigrama.pdf" download="Crucigrama.pdf"><button>DESCARGAR</button>
+        </a>
+    </div>
+
+    <div class="actividad">
+        <h3>Rompecabezas</h3>
+        <img src="../imagenes/rompe.webp" alt="Rompecabezas">
+        <p>Arma piezas coloridas con ilustraciones del océano mientras aprendes sobre sus secretos y maravillas.</p>
+        <a href="../documentos/Rompecabezas.pdf" download="Rompecabezas.pdf"><button>DESCARGAR</button>
+        </a>
+    </div>
+                </div>
+</div>
+    
+        </section>
+
+
+ </main>
+    <footer>
+  <div class="footer-col">
+        <h3>¡Únete a nosotros!</h3>
+        <div class="social">
+            <a href="https://www.facebook.com/" title="Facebook"><img src="../logos/facebook.png" alt="Facebook"></a>
+            <a href="https://www.youtube.com/" title="YouTube"><img src="../logos/youtube.png" alt="YouTube"></a>
+            <a href="https://www.instagram.com/" title="Instagram"><img src="../logos/instagram.png" alt="Instagram"></a>
+            <a href="https://www.tiktok.com/es/" title="TikTok"><img src="../logos/tictock.png" alt="TikTok"></a>
+        </div>
+    </div>
+    <div class="footer-col">
+        <h3>Más información aquí</h3>
+        <button class="btn" id="infoBtn">Click</button>
+    </div>
+    <p style="text-align:center; padding:20px;">© 2025 Vida en los Océanos</p>
+</footer>
+
+<!-- Mensaje de Error -->
+<div class="error-message" id="errorMessage">
+    <div class="error-content">
+        <button class="close-error" id="closeError">×</button>
+        <img src="../imagenes/pez-realista.webp" alt="Error">
+        <h2>¡Lo sentimos!</h2>
+        <p>Esta función está en desarrollo. Pronto tendrás acceso a más información.</p>
+        <p>Mientras tanto, te invitamos a explorar nuestro contenido.</p>
+        <button class="btn error-btn" id="closeErrorBtn">Entendido</button>
+    </div>
+</div>
+    <script>
+    // Función para mostrar el error
+    function showError() {
+        document.getElementById('errorMessage').style.display = 'flex';
+    }
+
+    // Función para ocultar el error
+    function hideError() {
+        document.getElementById('errorMessage').style.display = 'none';
+    }
+
+    // Asignar eventos cuando el DOM esté cargado
+    document.addEventListener('DOMContentLoaded', function() {
+        // Botón "Click" en el footer
+        const infoBtn = document.getElementById('infoBtn');
+        if(infoBtn) {
+            infoBtn.addEventListener('click', showError);
+        }
+        
+        // Botones para cerrar el mensaje
+        document.getElementById('closeError').addEventListener('click', hideError);
+        document.getElementById('closeErrorBtn').addEventListener('click', hideError);
+        
+        // Cerrar al hacer clic fuera del mensaje
+        document.getElementById('errorMessage').addEventListener('click', function(e) {
+            if(e.target === this) {
+                hideError();
+            }
+        });
+    });
+</script>
+</body>
+</html>

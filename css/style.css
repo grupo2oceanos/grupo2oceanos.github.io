@@ -1,0 +1,998 @@
+/* Importar fuentes desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Noto+Sans:wght@400;700&display=swap');
+
+/* Variables de colores y estilos base */
+:root {
+    --primary: #024a59;      /* Color principal */
+    --secondary: #04d9d9;    /* Color secundario */
+    --bg: #90ADBF;           /* Color de fondo */
+    --light: white;          /* Color claro (blanco) */
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra predeterminada */
+    --transition: all 0.3s ease; /* Transición suave */
+}
+
+/* Reset básico de márgenes, relleno y box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales del cuerpo */
+body {
+    font-family: 'Noto Sans', sans-serif;
+    background: var(--primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Títulos con fuente diferente */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Barlow', sans-serif;
+}
+
+/* ----- NAV ----- */
+
+/* Contenedor del nav */
+nav {
+    background: url("../imagenes/navfondo.webp") center/cover no-repeat;
+    padding: 20px 0;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+/* Lista de navegación */
+nav ul {
+    width: 90%;
+    max-width: 1200px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Cada ítem del menú */
+nav li {
+    min-width: 120px;
+    height: 50px;
+    background: var(--secondary);
+    border-radius: 8px;
+    transition: var(--transition);
+    flex: 1 1 auto;
+    position: relative;
+    margin: 0 5px;
+}
+
+/* Enlaces dentro del nav */
+nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 12px 15px;
+    color: var(--light);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Efecto hover en ítems del menú */
+nav li:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* ----- DROPDOWN ----- */
+
+/* Posición relativa para dropdown */
+.dropdown {
+    position: relative;
+}
+
+/* Flechita ▼ para el dropdown */
+.dropdown > a::after {
+    content: "▼";
+    font-size: 0.7em;
+    margin-left: 8px;
+    transition: var(--transition);
+}
+
+/* Rotación de flecha al hacer hover */
+.dropdown:hover > a::after {
+    transform: rotate(180deg);
+}
+
+/* Menú desplegable oculto inicialmente */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    min-width: 100%;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    z-index: 100;
+    padding: 10px 0;
+    animation: fadeIn 0.3s ease-out;
+    border-top: 3px solid var(--primary);
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mostrar menú al pasar el cursor */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Enlaces dentro del dropdown */
+.dropdown-menu a {
+    color: var(--primary);
+    padding: 12px 20px;
+    transition: var(--transition);
+    display: block;
+    text-align: center;
+    font-size: 0.9em;
+    border-bottom: 1px solid rgba(2, 74, 89, 0.1);
+}
+
+/* Último enlace sin borde inferior */
+.dropdown-menu a:last-child {
+    border-bottom: none;
+}
+
+/* Hover en opciones del menú */
+.dropdown-menu a:hover {
+    background: var(--primary);
+    color: var(--light);
+    transform: translateX(5px);
+}
+
+/* ----- NAVEGACIÓN DERECHA ----- */
+
+.right-nav {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Caja de búsqueda */
+.search {
+    display: flex;
+    align-items: center;
+    background: var(--light);
+    border-radius: 20px;
+    padding: 5px 10px;
+    box-shadow: var(--shadow);
+}
+
+/* Input de búsqueda */
+.search input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    width: 140px;
+    color: var(--primary);
+}
+
+/* Botón de búsqueda */
+.search button {
+    background: var(--secondary);
+    border: none;
+    padding: 6px 10px;
+    border-radius: 50%;
+    color: var(--light);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.search button:hover {
+    background: var(--primary);
+}
+
+/* Icono de registro (avatar o botón redondo) */
+.register {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light);
+    border-radius: 50%;
+    box-shadow: var(--shadow);
+    color: var(--primary);
+    transition: var(--transition);
+}
+
+.sesion:hover {
+    background: var(--secondary);
+    color: var(--light);
+}
+/* Icono de sesion (avatar o botón redondo) */
+.sesion {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light);
+    border-radius: 50%;
+    box-shadow: var(--shadow);
+    color: var(--primary);
+    transition: var(--transition);
+}
+
+.sesion:hover {
+    background: var(--secondary);
+    color: var(--light);
+}
+
+/* ----- HEADER ----- */
+
+header {
+    padding: 25px 20px;
+    text-align: center;
+    color: var(--light);
+}
+
+header h1 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ----- MAIN / SECTIONS ----- */
+
+main {
+    padding: 20px;
+}
+
+section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 25px auto;
+    padding: 30px;
+    background: var(--bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    color: var(--primary);
+    line-height: 1.6;
+}
+
+/* Diseño en dos columnas dentro de secciones */
+.section-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+}
+
+/* Contenido textual */
+.section-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Contenedor de imágenes */
+.section-images {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.section-images img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+
+/* Títulos dentro de secciones */
+section h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+section p {
+    margin-bottom: 15px;
+    hyphens: auto;
+    text-align: justify;
+}
+
+/* ----- FOOTER ----- */
+
+footer {
+    padding: 30px 5%;
+    background: var(--secondary);
+    color: var(--light);
+    margin-top: auto;
+    border-top: 3px solid var(--primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-col {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-col h3 {
+    margin: 0;
+    white-space: nowrap;
+}
+
+.footer-col:last-child {
+    justify-content: flex-end;
+}
+
+/* Redes sociales */
+.social {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20%;
+    transition: var(--transition);
+}
+
+.social img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Botón general */
+.btn {
+    background: var(--primary);
+    color: var(--light);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: bold;
+    font-family: 'Barlow', sans-serif;
+    min-width: 120px;
+    box-shadow: var(--shadow);
+}
+
+.btn:hover {
+    background: var(--light);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* Títulos fuera de las secciones */
+h2:not(section h2) {
+    text-align: center;
+    color: var(--light);
+    text-transform: uppercase;
+    margin: 60px 0;
+    font-size: 1.8rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+/* CONTENEDOR */
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    gap: 40px;
+    height: 100vh;
+}
+
+.texto {
+    background-color: #007d94;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 400px;
+    color: var(--light);
+}
+
+.texto h2 {
+    margin-top: 0;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.texto .icono {
+    margin-right: 10px;
+}
+
+.texto p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.imagen img {
+    width: 250px;
+    border: 8px solid #b3c1cc;
+    border-radius: 5px;
+}
+
+/* Caja de texto */
+.caja-texto {
+    background-color: #0291ac;
+    color: white;
+    padding: 30px 25px;
+    width: 380px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.caja-texto h2 {
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.icono {
+    margin-right: 10px;
+}
+
+/* Párrafo */
+.caja-texto p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Imagen */
+.caja-imagen img {
+    width: 250px;
+    height: auto;
+    border: 6px solid #d3dbe2;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    color: white;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+    width: 150px;
+    flex-shrink: 0; /* No se reduce si hay poco espacio */
+}
+
+.card1 {
+    overflow: hidden;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    color: white;
+    padding: 10px;
+    transition: transform 0.3s;
+    width: 150px;
+    flex-shrink: 0; /* No se reduce si hay poco espacio */
+}
+
+/* ----- RESPONSIVE DESIGN ----- */
+
+/* Estilos para tablets y móviles */
+@media (max-width: 768px) {
+    nav {
+        height: auto;
+        padding: 15px 0;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    nav li {
+        width: 90%;
+        max-width: 300px;
+        margin: 5px 0;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        width: 90%;
+        margin: 0 auto;
+        border-radius: 0 0 8px 8px;
+        box-shadow: none;
+        border: none;
+        animation: none;
+    }
+    
+    .dropdown > a::after {
+        display: none;
+    }
+    
+    .right-nav {
+        position: static;
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    .section-container {
+        flex-direction: column;
+    }
+    
+    .section-images {
+        order: -1;
+    }
+    
+    .section-images img {
+        max-width: 100%;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 5%;
+    }
+    
+    .footer-col {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .social {
+        margin: 10px 0;
+    }
+     #tab_animales th,
+    #tab_animales td {
+        background-color: aliceblue;
+        color: var(--primary);
+        padding: 10px;
+        text-align: center;
+    }
+}
+
+/* Estilos para pantallas pequeñas (teléfonos) */
+@media (max-width: 480px) {
+    nav li {
+        min-width: 80px;
+        height: 45px;
+    }
+    
+    .dropdown-menu a {
+        padding: 10px 15px;
+    }
+    
+    .right-nav {
+        top: 5px;
+        right: 5px;
+        gap: 5px;
+    }
+    
+    .search {
+        padding: 3px 8px;
+    }
+    
+    .search input {
+        width: 120px;
+    }
+    
+    .register {
+        width: 35px;
+        height: 35px;
+    }
+     .sesion {
+        width: 35px;
+        height: 35px;
+    }
+}
+ .imagen-con-borde {
+      width: 500px;
+      height: 300px;
+      object-fit: cover; /* Asegura que la imagen se recorte bien en cuadrado */
+border: 20px solid rgba(255, 255, 255, 0.5); /* Borde blanco semitransparente */
+border-radius: 5px; /* Ajusta el valor según lo redondeado que lo quieras */
+      box-sizing: border-box;
+    }
+
+    .cuadro-texto {
+      flex: 1;
+      background-color: #03738b;
+      border: 1px solid #03738b;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .cuadro-texto h2 {
+      margin-top: 0;
+    }
+
+
+.contenido2 {
+            text-align: center;
+            padding: 20px;
+            background-color: #1e3a3a; /* Fondo oscuro para el texto */
+            color: white; /* Texto blanco */
+            border-radius: 8px; /* Bordes redondeados */
+            max-width: 600px;
+        }
+.tarjeta {
+  background-color: #007C91;
+  padding: 20px;
+  border: 2px solid #045763;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.tarjeta h2 {
+  font-size: 1.4em;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.contenido {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.contenido img {
+  width: 200px;
+  height: auto;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.contenido p {
+  font-size: 1em;
+  color: #e0f7fa;
+  text-align: justify;
+}
+
+.imagenes {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.img-superior,
+.img-inferior {
+  width: 600px;
+  height: auto;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.cajas-texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 30px;
+  gap: 40px;
+}
+
+.caja {
+  background-color: #0098a3;
+  padding: 20px 25px;
+  border-radius: 5px;
+  width: 340px;
+}
+
+.caja h2 {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.caja h2 span {
+  color: #ffffff;
+}
+
+.caja p {
+  font-size: 14px;
+  color: #e2f5f7;
+  line-height: 1.5;
+}
+.contenedor-imagen {
+      width: 80%;           /* se puede usar px, %, vw, etc. */
+      max-width: 600px;     /* Límite máximo de ancho */
+      height: 30px;         /* Altura ajustable */
+      border: 2px solid #333; /* Borde del rectángulo */
+      padding: 10px;
+      box-sizing: border-box;
+      margin: 0 auto;       /* Centrar horizontalmente */
+      text-align: center;
+    }
+
+    .contenedor-imagen img {
+      width: 100%;          /* Ajustar la imagen al ancho del contenedor */
+      height: auto;         /* Mantener proporciones */
+    }
+.contenedor {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.encabezado h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.encabezado p {
+    font-size: 1.1em;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.tarjeta {
+    background-color: #167b9b;
+    padding: 20px;
+    border-radius: 8px;
+    width: 500px;
+    box-sizing: border-box;
+}
+
+.tarjeta h2 {
+    color: #ffffff;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+.tarjeta p, .tarjeta li {
+    font-size: 1em;
+    color: #e0f7fa;
+}
+
+.tarjeta ul {
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.tarjeta img {
+    margin-top: 15px;
+    width: 100%;
+    border-radius: 5px;
+}
+.contenedor-principal {
+  padding: 40px 30px;
+}
+
+.seccion-biodiversidad {
+  display: flex;
+  justify-content: space-between;
+  background-color: #018aad; /* Azul cian claro */
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 50px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.contenido-texto {
+  width: 60%;
+}
+
+.contenido-texto h2 {
+  margin-top: 0;
+  color: #ffffff;
+  font-size: 22px;
+}
+
+.contenido-texto p {
+  margin: 10px 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.imagen {
+  width: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagen img {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+/* Contenedor principal */
+.contenedor-principal {
+  padding: 40px;
+}
+
+/* Sección azul celeste con texto e imagen */
+.seccion-biodiversidad {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1DA2B6; /* Color azul claro celeste del recuadro */
+  padding: 25px;
+  border-radius: 8px;
+  margin-bottom: 50px;
+}
+
+/* Texto informativo */
+.contenido-texto {
+  width: 60%;
+}
+
+.contenido-texto h2 {
+  margin-top: 0;
+  font-size: 22px;
+  color: #FFFFFF;
+}
+
+.contenido-texto p {
+  margin: 10px 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #FFFFFF;
+}
+
+/* Imagen a la derecha */
+.imagen {
+  width: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagen img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+/* Sección inferior con conclusión */
+.seccion-conclusion {
+  display: flex;
+  justify-content: space-between;
+	  background-color: transparent; /* o cualquier otro color deseado */
+  box-shadow: none;
+  align-items: center;
+}
+
+.texto-conclusion {
+  width: 60%;
+  font-size: 14px;
+  color: #D8F0F4; /* Color celeste claro del texto inferior */
+}
+
+.imagen-conclusion {
+  width: 35%;
+}
+
+.imagen-conclusion img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+/* ----- ESTILOS PARA EL MENSAJE DE ERROR ----- */
+.error-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../imagenes/ecosistema02.jpg'); /* Cambia por tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+}
+
+.error-content {
+    background-color: var(--primary);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    text-align: center;
+    color: var(--light);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    position: relative;
+    border: 2px solid var(--secondary);
+    animation: fadeIn 0.4s ease-out;
+}
+
+.error-content img {
+    width: 300px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+        
+}
+
+.error-content h2 {
+    color: var(--secondary);
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.error-content p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.close-error {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--light);
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-error:hover {
+    color: var(--secondary);
+    transform: scale(1.2);
+}
+
+.error-btn {
+    margin-top: 15px;
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+.error-btn:hover {
+    background: var(--light);
+}
+

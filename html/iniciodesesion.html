@@ -1,0 +1,223 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesion</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        
+        .login-container{
+            background: white;
+            padding: 30px 40px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            margin: 50px auto;
+        }
+        
+        .login-container h2{
+            margin-bottom: 20px;
+            color: #024a59;
+            text-align: center;
+        }
+        
+        .form-group{
+            margin-bottom: 15px;
+        }
+        
+        .form-group label{
+            display: block;
+            margin-bottom: 5px;
+            color: #024a59;
+        }
+        
+        .form-group input{
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #90ADBF;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .login-button{
+            width: 100%;
+            padding: 10px;
+            background-color: #04d9d9;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .login-button:hover {
+            background-color: #90ADBF;
+        }
+        
+        .forgot-password{
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .forgot-password a{
+            color: #024a59;
+            text-decoration: none;
+        }
+        
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        
+    
+    .error-message {
+        color: red;
+        background-color:  #90ADBF;
+        border: 1px solid #04d9d9;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 4px;
+        text-align: center;
+        display: none;
+    </style>
+    
+    <header>
+        <h1>Inicio de sesión</h1>
+        <a href="../html/iniciodesesion.html"></a>
+    </header>
+</head>
+<body>
+    <nav>
+        <div class="right-nav">
+        <div class="search">
+                <input type="text" placeholder="Buscar...">
+                <button>🔍</button>
+        </div>
+             <a href="../html/Registro.html" class="register" title="Registrarse">📋</a>
+            <a href="../html/iniciodesesion.html" class="sesion" title="InicioSesion">👤</a>
+        </div>
+        
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li class="dropdown">
+                <a href="../html/explorar.html">Explorar</a>
+                <div class="dropdown-menu">
+                     <a href="../html/especies_marinas.html">🐠 Especies Marinas</a>
+                    <a href="../html/especies-exticion.html">⚠️ Especies en Peligro</a>
+                    <a href="../html/ecosistemas.html">🌊 Ecosistemas</a>
+                    <a href="../html/Contaminacion.html">🗑️ Contaminación</a>
+                    <a href="../html/cambio_climatico.html">🌍🌡️ Cambio Climático</a>
+                </div> 
+            </li>
+            <li class="dropdown">
+                <a href="../html/aprender.html">Aprender</a>
+                <div class="dropdown-menu">
+                   <a href="../html/proyectos.html">🛠️ Proyectos e Iniciativas</a>
+                    <a href="../html/ayudar.html">💚 Cómo Ayudar</a>
+                   <a href="../html/comunidad.html">👥 Comunidad</a>
+                    <a href="../html/ayuda.html">❓ Ayuda</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+           
+        <div class="login-container">
+        <h2>Iniciar Sesión</h2>
+        <form action="/login" method="POST" id="loginForm">
+            <div class="form-group">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+             <!-- Mensaje de error (oculto) -->
+            <div id="error-message" class="error-message" style="display: none;">
+                Usuario o contraseña incorrectos.Por favor da refresh a la página para volver a inicio de sesión.
+            </div>
+            <!-- Mensaje de submit pero manda a que le des refresh a la página -->
+            <button type="submit" class="login-button">Ingresar</button>
+            
+            <div class="forgot-password">
+                <a href="#">¿Olvidaste tu contraseña?</a>
+            </div>
+        </form>
+        </div>
+           
+        </section>
+    </main>
+    <!-- Mensaje de Error Para El Formulario  -->
+    <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Detiene el envío del formulario creo
+        
+        // Muestra el mensaje de error para que el usuario de refresh a la página y vuelva a inicio
+        document.getElementById('error-message').style.display = 'block';
+        
+    });
+</script>
+    
+    <footer>
+        <div class="footer-col">
+        <h3>¡Únete a nosotros!</h3>
+        <div class="social">
+            <a href="https://www.facebook.com/" title="Facebook"><img src="../logos/facebook.png" alt="Facebook"></a>
+            <a href="https://www.youtube.com/" title="YouTube"><img src="../logos/youtube.png" alt="YouTube"></a>
+            <a href="https://www.instagram.com/" title="Instagram"><img src="../logos/instagram.png" alt="Instagram"></a>
+            <a href="https://www.tiktok.com/es/" title="TikTok"><img src="../logos/tictock.png" alt="TikTok"></a>
+        </div>
+    </div>
+    <div class="footer-col">
+        <h3>Más información aquí</h3>
+        <button class="btn" id="infoBtn">Click</button>
+    </div>
+    <p style="text-align:center; padding:20px;">© 2025 Vida en los Océanos</p>
+</footer>
+
+<!-- Mensaje de Error -->
+<div class="error-message" id="errorMessage">
+    <div class="error-content">
+        <button class="close-error" id="closeError">×</button>
+        <img src="../imagenes/pez-realista.webp" alt="Error">
+        <h2>¡Lo sentimos!</h2>
+        <p>Esta función está en desarrollo. Pronto tendrás acceso a más información.</p>
+        <p>Mientras tanto, te invitamos a explorar nuestro contenido.</p>
+        <button class="btn error-btn" id="closeErrorBtn">Entendido</button>
+    </div>
+</div>
+    <script>
+    // Función para mostrar el error
+    function showError() {
+        document.getElementById('errorMessage').style.display = 'flex';
+    }
+
+    // Función para ocultar el error
+    function hideError() {
+        document.getElementById('errorMessage').style.display = 'none';
+    }
+
+    // Asignar eventos cuando el DOM esté cargado
+    document.addEventListener('DOMContentLoaded', function() {
+        // Botón "Click" en el footer
+        const infoBtn = document.getElementById('infoBtn');
+        if(infoBtn) {
+            infoBtn.addEventListener('click', showError);
+        }
+        
+        // Botones para cerrar el mensaje
+        document.getElementById('closeError').addEventListener('click', hideError);
+        document.getElementById('closeErrorBtn').addEventListener('click', hideError);
+        
+        // Cerrar al hacer clic fuera del mensaje
+        document.getElementById('errorMessage').addEventListener('click', function(e) {
+            if(e.target === this) {
+                hideError();
+            }
+        });
+    });
+</script>
+</body>
+</html>

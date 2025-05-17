@@ -1,0 +1,140 @@
+<html  lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <header>
+           <h1>Registro</h1>
+        <a href="../html/Registro.html"></a>
+       </header>
+</head>
+<body>
+ <nav>
+        <div class="right-nav">
+            <div class="search">
+                <input type="text" placeholder="Buscar...">
+                <button>🔍</button>
+            </div>
+             <a href="../html/Registro.html" class="register" title="Registrarse">📋</a>
+            <a href="../html/iniciodesesion.html" class="sesion" title="InicioSesion">👤</a>
+        </div>
+        
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li class="dropdown">
+                  <a href="../html/explorar.html">Explorar</a>
+                <div class="dropdown-menu">
+                   <a href="../html/especies_marinas.html">🐠 Especies Marinas</a>
+                    <a href="../html/especies-exticion.html">⚠️ Especies en Peligro</a>
+                    <a href="../html/ecosistemas.html">🌊 Ecosistemas</a>
+                    <a href="../html/Contaminacion.html">🗑️ Contaminación</a>
+                    <a href="../html/cambio_climatico.html">🌍🌡️ Cambio Climático</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="../html/aprender.html">Aprender</a>
+                <div class="dropdown-menu">
+                  <a href="../html/proyectos.html">🛠️ Proyectos e Iniciativas</a>
+                    <a href="../html/ayudar.html">💚 Cómo Ayudar</a>
+                   <a href="../html/comunidad.html">👥 Comunidad</a>
+                    <a href="../html/ayuda.html">❓ Ayuda</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <main>
+       <section>
+    <h2>¿Nuevo en Vida en los Océanos?</h2>
+    <p>Crea tu cuenta y sumérgete en un mundo marino lleno de descubrimientos. ¡No te pierdas ningún detalle!</p>
+    <form action="#" method="post">
+    <div class="form-group">
+      <label for="nombreCompleto">Nombre completo:</label>
+      <input type="text" id="nombreCompleto" name="nombreCompleto">
+    </div>
+
+    <div class="form-group">
+      <label for="usuario">Nombre de usuario:</label>
+      <input type="text" id="usuario" name="usuario">
+    </div>
+
+    <div class="form-group">
+      <label for="correo">Correo electrónico:</label>
+      <input type="email" id="correo" name="correo">
+    </div>
+
+    <div class="form-group">
+      <label for="contrasena">Contraseña:</label>
+      <input type="password" id="contrasena" name="contrasena">
+    </div>
+
+    <div class="form-group">
+      <label for="confirmarContrasena">Confirmar contraseña:</label>
+      <input type="password" id="confirmarContrasena" name="confirmarContrasena">
+    </div>
+
+    <button type="submit">Registrarse</button>
+  </form>
+</section>
+    </main>
+    <footer>
+   <div class="footer-col">
+        <h3>¡Únete a nosotros!</h3>
+        <div class="social">
+            <a href="https://www.facebook.com/" title="Facebook"><img src="../logos/facebook.png" alt="Facebook"></a>
+            <a href="https://www.youtube.com/" title="YouTube"><img src="../logos/youtube.png" alt="YouTube"></a>
+            <a href="https://www.instagram.com/" title="Instagram"><img src="../logos/instagram.png" alt="Instagram"></a>
+            <a href="https://www.tiktok.com/es/" title="TikTok"><img src="../logos/tictock.png" alt="TikTok"></a>
+        </div>
+    </div>
+    <div class="footer-col">
+        <h3>Más información aquí</h3>
+        <button class="btn" id="infoBtn">Click</button>
+    </div>
+    <p style="text-align:center; padding:20px;">© 2025 Vida en los Océanos</p>
+</footer>
+
+<!-- Mensaje de Error -->
+<div class="error-message" id="errorMessage">
+    <div class="error-content">
+        <button class="close-error" id="closeError">×</button>
+        <img src="../imagenes/pez-realista.webp" alt="Error">
+        <h2>¡Lo sentimos!</h2>
+        <p>Esta función está en desarrollo. Pronto tendrás acceso a más información.</p>
+        <p>Mientras tanto, te invitamos a explorar nuestro contenido.</p>
+        <button class="btn error-btn" id="closeErrorBtn">Entendido</button>
+    </div>
+</div>
+    <script>
+    // Función para mostrar el error
+    function showError() {
+        document.getElementById('errorMessage').style.display = 'flex';
+    }
+
+    // Función para ocultar el error
+    function hideError() {
+        document.getElementById('errorMessage').style.display = 'none';
+    }
+
+    // Asignar eventos cuando el DOM esté cargado
+    document.addEventListener('DOMContentLoaded', function() {
+        // Botón "Click" en el footer
+        const infoBtn = document.getElementById('infoBtn');
+        if(infoBtn) {
+            infoBtn.addEventListener('click', showError);
+        }
+        
+        // Botones para cerrar el mensaje
+        document.getElementById('closeError').addEventListener('click', hideError);
+        document.getElementById('closeErrorBtn').addEventListener('click', hideError);
+        
+        // Cerrar al hacer clic fuera del mensaje
+        document.getElementById('errorMessage').addEventListener('click', function(e) {
+            if(e.target === this) {
+                hideError();
+            }
+        });
+    });
+</script>
+</body>
+</html>

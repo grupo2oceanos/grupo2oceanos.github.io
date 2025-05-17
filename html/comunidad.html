@@ -1,0 +1,143 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidad</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <header>
+        <h1>Comunidad</h1>
+        <a href="../html/comunidad.html"></a>
+    </header>
+</head>
+<body>
+    <nav>
+        <div class="right-nav">
+            <div class="search">
+                <input type="text" placeholder="Buscar...">
+                <button>🔍</button>
+            </div>
+            <a href="../html/Registro.html" class="register" title="Registrarse">📋</a>
+            <a href="../html/iniciodesesion.html" class="sesion" title="InicioSesion">👤</a>
+        </div>
+
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li class="dropdown">
+                <a href="../html/explorar.html">Explorar</a>
+                <div class="dropdown-menu">
+                    <a href="../html/especies_marinas.html">🐠 Especies Marinas</a>
+                    <a href="../html/especies-exticion.html">⚠️ Especies en Peligro</a>
+                    <a href="../html/ecosistemas.html">🌊 Ecosistemas</a>
+                    <a href="../html/Contaminacion.html">🗑️ Contaminación</a>
+                    <a href="../html/cambio_climatico.html">🌍🌡️ Cambio Climático</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="../html/aprender.html">Aprender</a>
+                <div class="dropdown-menu">
+                       <a href="../html/proyectos.html">🛠️ Proyectos e Iniciativas</a>
+                    <a href="../html/ayudar.html">💚 Cómo Ayudar</a>
+                   <a href="../html/comunidad.html">👥 Comunidad</a>
+                    <a href="../html/ayuda.html">❓ Ayuda</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+             <h2>Comparte tu mensaje con la comunidad</h2>
+                <p style="text-align:center">Publica tus ideas, preguntas o reflexiones sobre el mundo marino. Otros usuarios podrán comentarlas.</p>
+          
+            <section>
+            <h4>Capitán Pez Globo</h4>
+            <p>¡Hola a todos!😀🙌 ¿Cómo están?<p>¿Sabían que muchas especies marinas están en peligro de extinción debido a la contaminación?</p>
+            </section>
+            <section>
+            <h4>Dr. Caracol</h4>
+            <p><img id="img_derecha" class="img_float" src="../imagenes/pezcondi.webp" alt="pez payaso escondido"> 
+            <p>Encontré una imagen chistosa de un pez payaso que se esconde entre los corales. ¡Es como si estuviera diciendo "😠aquí estoy, pero no me veas"!😂😂😂😂</p>
+            </section>
+             <section>
+            <h4>Profesor Pulpo </h4>
+            <p>🤨Mi duda es: ¿Cómo el cambio climático afecta a los arrecifes de coral?<p>Yo creo que el aumento de temperatura del agua está causando el blanqueamiento de los corales. Es una situación alarmante.</p>
+            </section>
+             <section>
+            <h4>Sirena Chistosa</h4>
+            <p>Opino que la gente puede proteger la vida marina, siento que la educación ambiental es clave. También deberíamos reducir el uso de plásticos y fomentar la conservación.</p>
+            </section>
+             <section>
+            <h4>Tiburón Risitas</h4>
+             <p><img id="img_derecha" class="img_float" src="../imagenes/tiburonkhe.webp" alt="tiburón sorprendido"> 
+            <p>😱EN SHOCK... </p>
+            <form action="" method="get">
+    
+        <label for="mensaje"></label>
+        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí"></textarea>
+        <br><br>
+        <input type="submit" value="Enviar mensaje">
+    </form>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-col">
+        <h3>¡Únete a nosotros!</h3>
+        <div class="social">
+            <a href="https://www.facebook.com/" title="Facebook"><img src="../logos/facebook.png" alt="Facebook"></a>
+            <a href="https://www.youtube.com/" title="YouTube"><img src="../logos/youtube.png" alt="YouTube"></a>
+            <a href="https://www.instagram.com/" title="Instagram"><img src="../logos/instagram.png" alt="Instagram"></a>
+            <a href="https://www.tiktok.com/es/" title="TikTok"><img src="../logos/tictock.png" alt="TikTok"></a>
+        </div>
+    </div>
+    <div class="footer-col">
+        <h3>Más información aquí</h3>
+        <button class="btn" id="infoBtn">Click</button>
+    </div>
+    <p style="text-align:center; padding:20px;">© 2025 Vida en los Océanos</p>
+</footer>
+
+<!-- Mensaje de Error -->
+<div class="error-message" id="errorMessage">
+    <div class="error-content">
+        <button class="close-error" id="closeError">×</button>
+        <img src="../imagenes/pez-realista.webp" alt="Error">
+        <h2>¡Lo sentimos!</h2>
+        <p>Esta función está en desarrollo. Pronto tendrás acceso a más información.</p>
+        <p>Mientras tanto, te invitamos a explorar nuestro contenido.</p>
+        <button class="btn error-btn" id="closeErrorBtn">Entendido</button>
+    </div>
+</div>
+    <script>
+    // Función para mostrar el error
+    function showError() {
+        document.getElementById('errorMessage').style.display = 'flex';
+    }
+
+    // Función para ocultar el error
+    function hideError() {
+        document.getElementById('errorMessage').style.display = 'none';
+    }
+
+    // Asignar eventos cuando el DOM esté cargado
+    document.addEventListener('DOMContentLoaded', function() {
+        // Botón "Click" en el footer
+        const infoBtn = document.getElementById('infoBtn');
+        if(infoBtn) {
+            infoBtn.addEventListener('click', showError);
+        }
+        
+        // Botones para cerrar el mensaje
+        document.getElementById('closeError').addEventListener('click', hideError);
+        document.getElementById('closeErrorBtn').addEventListener('click', hideError);
+        
+        // Cerrar al hacer clic fuera del mensaje
+        document.getElementById('errorMessage').addEventListener('click', function(e) {
+            if(e.target === this) {
+                hideError();
+            }
+        });
+    });
+</script>
+</body>
+</html>
